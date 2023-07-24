@@ -1,6 +1,6 @@
 {
-  "name": "solidity-land-registry",
-  "description": "Decentralized Land Registry",
+  "name": "solidity-real-estate-crowdfunding",
+  "description": "Real-Esate Crowdfunding",
   "author": "Stichting Block Foundation",
   "version": "0.0.1",
   "license": "Apache-2.0",
@@ -9,13 +9,13 @@
     "blockchain",
     "architecture"
   ],
-  "homepage": "https://github.com/block-foundation/solidity-land-registry#readme",
+  "homepage": "https://github.com/block-foundation/solidity-real-estate-crowdfunding#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/block-foundation/solidity-land-registry.git"
+    "url": "git+https://github.com/block-foundation/solidity-real-estate-crowdfunding.git"
   },
   "bugs": {
-    "url": "https://github.com/block-foundation/solidity-land-registry/issues"
+    "url": "https://github.com/block-foundation/solidity-real-estate-crowdfunding/issues"
   },
   "main": "index.ts",
   "scripts": {
