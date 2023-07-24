@@ -10,7 +10,7 @@
 
 <div>
     <img align="right" src="https://raw.githubusercontent.com/block-foundation/brand/master/logo/logo_gray.png" width="96" alt="Block Foundation Logo">
-    <h1 align="left">Real-Esate Crowdfunding</h1>
+    <h1 align="left">Real-Estate Crowdfunding</h1>
     <h3 align="left">Block Foundation Smart Contract Series [Solidity]</h3>
 </div>
 
