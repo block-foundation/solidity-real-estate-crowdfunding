@@ -23,8 +23,16 @@ pragma solidity ^0.8.19;
 // Contracts
 // ============================================================================
 
+/**
+ * Real Estate Crowdfunding Contract
+ * @dev 
+ */
 contract RealEstateCrowdfunding {
 
+    /**
+     * Campaign
+     * @dev 
+     */
     struct Campaign {
         address payable beneficiary; // the owner of the property
         uint256 goal; // target amount to be raised in wei
@@ -39,6 +47,12 @@ contract RealEstateCrowdfunding {
     // Methods
     // ========================================================================
 
+    /**
+     * createCampaign
+     * @dev 
+     * @param goal The goal
+     * @param duration The duration
+     */
     function createCampaign(
         uint256 goal,
         uint256 duration
@@ -52,6 +66,11 @@ contract RealEstateCrowdfunding {
         campaignID = campaigns.length - 1;
     }
 
+    /**
+     * contribute
+     * @dev 
+     * @param campaignID The campaignID
+     */
     function contribute(
         uint256 campaignID
     ) public payable {
@@ -68,12 +87,22 @@ contract RealEstateCrowdfunding {
         campaigns[campaignID].raisedAmount += msg.value;
     }
 
+    /**
+     * checkContribution
+     * @dev 
+     * @param campaignID The campaignID
+     */
     function checkContribution(
         uint256 campaignID
     ) public view returns (uint256) {
         return campaigns[campaignID].investors[msg.sender];
     }
     
+    /**
+     * withdrawFunds
+     * @dev 
+     * @param campaignID The campaignID
+     */
     function withdrawFunds(
         uint256 campaignID
     ) public {
@@ -93,6 +122,11 @@ contract RealEstateCrowdfunding {
         campaigns[campaignID].beneficiary.transfer(campaigns[campaignID].raisedAmount);
     }
 
+    /**
+     * refund
+     * @dev 
+     * @param campaignID The campaignID
+     */
     function refund(
         uint256 campaignID
     ) public {
@@ -114,4 +148,5 @@ contract RealEstateCrowdfunding {
         campaigns[campaignID].investors[msg.sender] = 0;
         payable(msg.sender).transfer(investorContribution);
     }
+
 }
