@@ -39,8 +39,6 @@
 
 ## Introduction
 
-Introducing the Real Estate Crowdfunding Blockchain Solution
-
 As technology continues to evolve and reshape industries globally, we are excited to bring you our latest development: a groundbreaking solution for the real estate industry. This innovative project applies the principles of blockchain technology to real estate crowdfunding, a venture we believe will revolutionize how individuals and organizations raise funds for real estate projects.
 
 Our solution utilizes Smart Contract technology to facilitate, validate, and enforce negotiation or performance of an agreement. This automated, self-executing contract with the terms of the agreement directly written into code enables the democratization of real estate funding, rendering it more transparent, efficient, and accessible.
