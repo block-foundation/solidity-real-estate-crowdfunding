@@ -14,43 +14,63 @@
 
 
 // Import necessary modules from hardhat
-import { ethers, upgrades } from "hardhat";
+import {
+    ethers,
+    upgrades
+} from "hardhat";
+
 
 // The main function that will be executed during the deployment
 async function main() {
-  // Retrieve the signers from ethers.js
-  const [deployer] = await ethers.getSigners();
 
-  // Log the address of the account deploying the contract
-  console.log(
-    "Deploying contracts with the account:",
-    await deployer.getAddress()
-  );
+    // Retrieve the signers from ethers.js
+    const [deployer] = await ethers.getSigners();
 
-  // Log the account balance of the deployer before deployment
-  console.log("Account balance:", (await deployer.getBalance()).toString());
+    // Log the address of the account deploying the contract
+    console.log(
+        "Deploying contracts with the account:",
+        await deployer.getAddress()
+    );
 
-  // Get the ContractFactory of your Contract
-  const RealEstateCrowdfundingFactory = await ethers.getContractFactory("RealEstateCrowdfunding");
+    // Log the account balance of the deployer before deployment
+    console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  // Deploy the contract and store the resulting Contract object
-  const realEstateCrowdfunding = await RealEstateCrowdfundingFactory.deploy();
+    // Get the ContractFactory of your Contract
+    const RealEstateCrowdfundingFactory = await ethers.getContractFactory(
+        "RealEstateCrowdfunding"
+    );
 
-  // Log the address of the newly deployed contract
-  console.log("RealEstateCrowdfunding contract address:", realEstateCrowdfunding.address);
+    // Deploy the contract and store the resulting Contract object
+    const realEstateCrowdfunding = await RealEstateCrowdfundingFactory.deploy();
 
-  // Wait until the transaction that deployed the contract has been mined
-  await realEstateCrowdfunding.deployed();
+    // Log the address of the newly deployed contract
+    console.log(
+        "RealEstateCrowdfunding contract address:",
+        realEstateCrowdfunding.address
+    );
 
-  // Log the address of the contract again once it has been deployed
-  console.log("RealEstateCrowdfunding deployed to:", realEstateCrowdfunding.address);
+    // Wait until the transaction that deployed the contract has been mined
+    await realEstateCrowdfunding.deployed();
+
+    // Log the address of the contract again once it has been deployed
+    console.log(
+        "RealEstateCrowdfunding deployed to:",
+        realEstateCrowdfunding.address
+    );
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.
 main()
-  .then(() => process.exit(0))  // Close the process
-  .catch((error) => {            // Catch any errors
-    console.error(error);         // Log the error
-    process.exit(1);              // Close the process
-  });
+    // Close the process
+    .then(() => process.exit(0))
+    // Catch any errors
+    .catch(
+        (error) => {
+            // Log the error
+            console.error(error);
+            // Close the process
+            process.exit(1);
+        }
+    );
