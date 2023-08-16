@@ -24,9 +24,9 @@ pragma solidity ^0.8.19;
 // ============================================================================
 
 /**
- * @title Real Estate Crowdfunding Contract
- * @dev A crowdfunding contract where potential homebuyers or real estate 
- * developers could raise funds for their projects.
+ *  @title Real Estate Crowdfunding Contract
+ *  @dev A crowdfunding contract where potential homebuyers or real estate 
+ *  developers could raise funds for their projects.
  */
 contract RealEstateCrowdfunding {
 
@@ -41,13 +41,14 @@ contract RealEstateCrowdfunding {
     // ========================================================================
 
     /**
-     * @title Campaign
-     * @dev The struct for the campaign details.
-     * @param beneficiary The owner of the property who receives the funds.
-     * @param goal Target amount to be raised in wei.
-     * @param deadline Fundraising deadline as UNIX timestamp.
-     * @param raisedAmount The amount of wei raised.
-     * @param investors A mapping of the investors' addresses to their contributions.
+     *  @title Campaign
+     *  @dev The struct for the campaign details.
+     *  @param beneficiary The owner of the property who receives the funds.
+     *  @param goal Target amount to be raised in wei.
+     *  @param deadline Fundraising deadline as UNIX timestamp.
+     *  @param raisedAmount The amount of wei raised.
+     *  @param investors A mapping of the investors' addresses to their
+     *  contributions.
      */
     struct Campaign {
         address payable beneficiary;
@@ -62,11 +63,12 @@ contract RealEstateCrowdfunding {
     // ========================================================================
 
     /**
-     * @notice Create a new crowdfunding campaign.
-     * @dev Start a new campaign by specifying the goal and duration. The sender becomes the beneficiary.
-     * @param goal The amount of wei needed for the project.
-     * @param duration The number of seconds that the campaign will be active.
-     * @return campaignID The ID of the newly created campaign.
+     *  @notice Create a new crowdfunding campaign.
+     *  @dev Start a new campaign by specifying the goal and duration. The
+     *  sender becomes the beneficiary.
+     *  @param goal The amount of wei needed for the project.
+     *  @param duration The number of seconds that the campaign will be active.
+     *  @return campaignID The ID of the newly created campaign.
      */
     function createCampaign(
         uint256 goal,
@@ -86,10 +88,11 @@ contract RealEstateCrowdfunding {
     // ========================================================================
 
     /**
-     * @notice Contribute to a crowdfunding campaign.
-     * @dev Add funds to a campaign, the campaign must not be ended and the raisedAmount
-     * plus the new contribution should not exceed the goal.
-     * @param campaignID The ID of the campaign to contribute to.
+     *  @notice Contribute to a crowdfunding campaign.
+     *  @dev Add funds to a campaign, the campaign must not be ended and the
+     *  raisedAmount
+     *  plus the new contribution should not exceed the goal.
+     *  @param campaignID The ID of the campaign to contribute to.
      */
     function contribute(
         uint256 campaignID
@@ -108,10 +111,11 @@ contract RealEstateCrowdfunding {
     }
 
     /**
-     * @notice Check the contribution of the message sender to the campaign.
-     * @dev Returns the amount contributed by the message sender to the specific campaign.
-     * @param campaignID The ID of the campaign to check contribution from.
-     * @return The amount of wei contributed by the message sender.
+     *  @notice Check the contribution of the message sender to the campaign.
+     *  @dev Returns the amount contributed by the message sender to the
+     *  specific campaign.
+     *  @param campaignID The ID of the campaign to check contribution from.
+     *  @return The amount of wei contributed by the message sender.
      */
     function checkContribution(
         uint256 campaignID
@@ -120,10 +124,10 @@ contract RealEstateCrowdfunding {
     }
     
     /**
-     * @notice Withdraw funds from the campaign.
-     * @dev Allows the beneficiary of the campaign to withdraw the funds after the goal has been met 
-     * and the deadline has passed.
-     * @param campaignID The ID of the campaign to withdraw funds from.
+     *  @notice Withdraw funds from the campaign.
+     *  @dev Allows the beneficiary of the campaign to withdraw the funds after
+     *  the goal has been met and the deadline has passed.
+     *  @param campaignID The ID of the campaign to withdraw funds from.
      */
     function withdrawFunds(
         uint256 campaignID
@@ -145,9 +149,10 @@ contract RealEstateCrowdfunding {
     }
 
     /**
-     * @notice Refund the contribution of the message sender.
-     * @dev Allows an investor to get a refund if the campaign did not reach its goal and the deadline has passed.
-     * @param campaignID The ID of the campaign to get a refund from.
+     *  @notice Refund the contribution of the message sender.
+     *  @dev Allows an investor to get a refund if the campaign did not reach
+     *  its goal and the deadline has passed.
+     *  @param campaignID The ID of the campaign to get a refund from.
      */
     function refund(
         uint256 campaignID
